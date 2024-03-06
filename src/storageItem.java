@@ -28,4 +28,10 @@ public class storageItem {
         return quantity;
     }
 
+    @Override
+    public String toString() {
+        return "storageItem [description=" + description + ", code=" + code + ", uPrice=" + uPrice + ", quantity="
+                + quantity + "]";
+    }
+
 }

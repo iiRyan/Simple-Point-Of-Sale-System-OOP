@@ -6,6 +6,10 @@ public class App {
 
         Storage storage = new Storage();
         storage.loadItemsFromFile();
+        storage.printItems();
+        System.out.println("==================================");
+
+        storage.printItems(storage.findByCode("15"));
     }
 
     public static void game() {

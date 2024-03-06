@@ -1,25 +1,52 @@
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.*;
 
 public class Storage {
-    List<storageItem> itemsList;
-    HelperClass helperClass = new HelperClass();
+    List<storageItem> itemsList = new ArrayList<>();
+    PrintItem printer;
 
     public Storage() {
+        itemsList = new ArrayList<>();
+        printer = new PrintItem();
+    }
 
+    public storageItem findByCode(String code) throws Exception {
+        storageItem targetItem = null;
+        for (storageItem item : itemsList) {
+            if (item.getCode().equals(code)) {
+                targetItem = item;
+            }
+        }
+        return targetItem;
     }
 
     public void loadItemsFromFile() throws Exception {
-        Scanner src = new Scanner(new File("D:/Java/Practic/coreJava/src/SuperMarket.txt"));
-        itemsList = new ArrayList<>();
+        try {
+            Scanner src = new Scanner(
+                    new File("C:/V3/https---github.com-iiRyan-Simple-Point-Of-Sale-System/src/SuperMarket.txt"));
+            String line = "";
 
-        while (src.hasNextLine()) {
-            String line = src.nextLine();
-            itemsList.add(new storageItem(line));
+            while (src.hasNextLine()) {
+                line = src.nextLine();
+                itemsList.add(new storageItem(line));
+            }
+            src.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
         }
-        System.out.println(itemsList.size());
-        src.close();
 
     }
 
+    public void printItems() {
+        printer.printHeader();
+        printer.printBody(itemsList);
+    }
+
+    public void printItems(storageItem items) {
+        printer.printHeader();
+        printer.printBody(items);
+    }
 }
