@@ -4,12 +4,15 @@ import java.util.*;
 public class App {
     public static void main(String[] args) throws Exception {
 
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter the FIle Path: ");
+        String path = input.nextLine();
         Storage storage = new Storage();
-        storage.loadItemsFromFile();
-        storage.printItems();
-        System.out.println("==================================");
 
-        storage.printItems(storage.findByCode("15"));
+        storage.loadItemsFromFile(path);
+        storage.findByCode("4");
+        storage.printItems();
+
     }
 
     public static void game() {

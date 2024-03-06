@@ -21,10 +21,10 @@ public class Storage {
         return targetItem;
     }
 
-    public void loadItemsFromFile() throws Exception {
+    public void loadItemsFromFile(String path) throws Exception {
         try {
             Scanner src = new Scanner(
-                    new File("C:/V3/https---github.com-iiRyan-Simple-Point-Of-Sale-System/src/SuperMarket.txt"));
+                    new File(path));
             String line = "";
 
             while (src.hasNextLine()) {
