@@ -1,0 +1,20 @@
+1| Gourmet Dark Chocolate - 200 gm| 2.00|50
+2| Organic Green Tea Bags - Pack of 25| 3.50|80
+3| Fresh Strawberries - 500 gm| 1.80|60
+4| Premium Ground Coffee - 250 gm| 4.50|40
+5| Extra Virgin Olive Oil - 500 ml| 5.50|30
+6| Quinoa Grain - 1 kg| 3.20|70
+7| Natural Almond Butter - 300 gm|6.00|25
+8| Spaghetti Pasta - 500 gm| 1.50|90
+9| Mixed Nuts Trail Mix - 200 gm| 2.80|50
+10| Greek Yogurt - 1 kg| 3.00|60
+11| Himalayan Pink Salt - 250 gm| 1.00|100
+12| Fresh Avocados - Pack of 3| 2.50|40
+13| Chicken Breast Fillets - 500 gm| 7.00|20
+14| Whole Wheat Bread Loaf| 2.20|70
+15| Honey Nut Granola - 400 gm| 4.20|35
+16| Sparkling Mineral Water - 1 L| 0.75|80
+17| Mixed Berry Jam - 250 gm| 2.50|45
+18| Assorted Herbal Tea Sampler| 3.80|60
+19| Fresh Pineapple Juice - 1 L| 1.90|50
+20| Dijon Mustard - 150 gm| 1.30|75
