@@ -1,3 +1,5 @@
+package com.sposs;
+
 import java.util.List;
 
 public class PrintItem {
@@ -11,9 +13,9 @@ public class PrintItem {
         System.out.println(printSeparation());
     }
 
-    public void printBody(List<storageItem> itemsList) {
+    public void printBody(List<StorageItem> itemsList) {
         String body = "";
-        for (storageItem item : itemsList) {
+        for (StorageItem item : itemsList) {
             body = String.format("| %2s | %-40s | %6.2f | %3d |", item.getCode(), item.getDescription(),
                     item.getuPrice(), item.getQuantity());
             System.out.println(body);
@@ -21,7 +23,7 @@ public class PrintItem {
         System.out.println(printSeparation());
     }
 
-    public void printBody(storageItem item) {
+    public void printBody(StorageItem item) {
         String body = "";
 
         body = String.format("| %2s | %-40s | %6.2f | %3d |", item.getCode(), item.getDescription(),

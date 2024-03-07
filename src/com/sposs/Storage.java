@@ -1,23 +1,34 @@
+package com.sposs;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
 
 public class Storage {
-    List<storageItem> itemsList = new ArrayList<>();
+    List<StorageItem> itemsList = new ArrayList<>();
     PrintItem printer;
 
     public Storage() {
         itemsList = new ArrayList<>();
         printer = new PrintItem();
+
     }
 
-    public storageItem findByCode(String code) throws Exception {
-        storageItem targetItem = null;
-        for (storageItem item : itemsList) {
+    public void starter() throws Exception {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter the FIle Path: ");
+        String path = input.nextLine();
+        loadItemsFromFile(path);
+    }
+
+    public StorageItem findByCode(String code) throws Exception {
+        StorageItem targetItem = null;
+        for (StorageItem item : itemsList) {
             if (item.getCode().equals(code)) {
                 targetItem = item;
             }
         }
+
         return targetItem;
     }
 
@@ -29,7 +40,7 @@ public class Storage {
 
             while (src.hasNextLine()) {
                 line = src.nextLine();
-                itemsList.add(new storageItem(line));
+                itemsList.add(new StorageItem(line));
             }
             src.close();
         } catch (FileNotFoundException e) {
@@ -45,8 +56,12 @@ public class Storage {
         printer.printBody(itemsList);
     }
 
-    public void printItems(storageItem items) {
+    public void printItems(StorageItem items) {
         printer.printHeader();
-        printer.printBody(items);
+        if (items != null) {
+            printer.printBody(items);
+        } else {
+            System.out.println("Item not found");
+        }
     }
 }

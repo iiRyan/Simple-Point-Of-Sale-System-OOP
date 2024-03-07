@@ -1,10 +1,12 @@
-public class storageItem {
+package com.sposs;
+
+public class StorageItem {
     private String description;
     private String code;
     private float uPrice; // unit price
-    private int quantity;
+    private int quantity; 
 
-    public storageItem(String line) {
+    public StorageItem(String line) {
         String[] pieces = line.split("[|]");
         this.code = pieces[0];
         this.description = pieces[1];
