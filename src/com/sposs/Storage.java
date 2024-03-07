@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.*;
 
 public class Storage {
-    List<StorageItem> itemsList = new ArrayList<>();
+    List<StorageItem> itemsList;
     PrintItem printer;
 
     public Storage() {
@@ -15,21 +15,25 @@ public class Storage {
     }
 
     public void starter() throws Exception {
-        Scanner input = new Scanner(System.in);
-        System.out.print("Enter the FIle Path: ");
-        String path = input.nextLine();
-        loadItemsFromFile(path);
+        // Scanner input = new Scanner(System.in);
+        // System.out.print("Enter the FIle Path: ");
+        // String path = input.nextLine();
+        loadItemsFromFile("C:/V3/https---github.com-iiRyan-Simple-Point-Of-Sale-System/src/SuperMarket.txt");
     }
 
     public StorageItem findByCode(String code) throws Exception {
         StorageItem targetItem = null;
+        starter();
         for (StorageItem item : itemsList) {
             if (item.getCode().equals(code)) {
                 targetItem = item;
             }
         }
-
         return targetItem;
+    }
+
+    public List<StorageItem> findAll() {
+        return itemsList;
     }
 
     public void loadItemsFromFile(String path) throws Exception {
@@ -51,17 +55,4 @@ public class Storage {
 
     }
 
-    public void printItems() {
-        printer.printHeader();
-        printer.printBody(itemsList);
-    }
-
-    public void printItems(StorageItem items) {
-        printer.printHeader();
-        if (items != null) {
-            printer.printBody(items);
-        } else {
-            System.out.println("Item not found");
-        }
-    }
 }
