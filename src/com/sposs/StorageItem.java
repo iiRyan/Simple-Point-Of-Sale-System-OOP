@@ -1,39 +1,18 @@
 package com.sposs;
 
-public class StorageItem {
-    private String description;
-    private String code;
-    private float uPrice; // unit price
-    private int quantity; 
+public class StorageItem extends Item {
 
     public StorageItem(String line) {
         String[] pieces = line.split("[|]");
-        this.code = pieces[0];
-        this.description = pieces[1];
-        this.uPrice = Float.parseFloat(pieces[2]);
-        this.quantity = Integer.parseInt(pieces[3]);
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public float getuPrice() {
-        return uPrice;
-    }
-
-    public int getQuantity() {
-        return quantity;
+        this.setCode(pieces[0]);
+        this.setDescription(pieces[1]);
+        this.setUPrice(Float.parseFloat(pieces[2]));
+        this.setQuantity(Integer.parseInt(pieces[3]));
     }
 
     @Override
     public String toString() {
-        return "storageItem [description=" + description + ", code=" + code + ", uPrice=" + uPrice + ", quantity="
-                + quantity + "]";
+        return "StorageItem []";
     }
 
 }

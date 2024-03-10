@@ -3,7 +3,7 @@ package com.sposs;
 import java.util.List;
 
 public class PrintItem {
-    private int length;
+    private int length = 50;
 
     public void header() {
         String header = String.format("| %2s | %-40s | %6s | %3s |", "ID", "Description", "Price", "Qty");
@@ -13,20 +13,21 @@ public class PrintItem {
 
     }
 
-    public void body(List<StorageItem> itemsList) {
+    public void body(List<Item> itemsList) {
         String body = "";
-        for (StorageItem item : itemsList) {
+        for (Item item : itemsList) {
             body = String.format("| %2s | %-40s | %6.2f | %3d |", item.getCode(), item.getDescription(),
-                    item.getuPrice(), item.getQuantity());
+                    item.getUPrice(), item.getQuantity());
             System.out.println(body);
         }
+        separation();
     }
 
-    public void body(StorageItem item) {
+    public void body(Item item) {
         String body = "";
 
         body = String.format("| %2s | %-40s | %6.2f | %3d |", item.getCode(), item.getDescription(),
-                item.getuPrice(), item.getQuantity());
+                item.getUPrice(), item.getQuantity());
         System.out.println(body);
 
     }
@@ -39,11 +40,11 @@ public class PrintItem {
         System.out.println(header);
     }
 
-    public void printItems(List<StorageItem> itemsList) {
+    public void printItems(List<Item> itemsList) {
         header();
         separation();
         body(itemsList);
-        separation();
+
     }
 
     public void printTotal(float total) {
@@ -51,4 +52,16 @@ public class PrintItem {
         System.out.println(printTotal);
         separation();
     }
+
+    public void printInvoice(Invoice invoice) {
+        separation();
+        String printBody = "";
+        printBody = String.format("| Invoice Number:  %s %n", Invoice.getId());
+        printBody += String.format("| Customer Name:  %s %n", invoice.getUsername());
+        printBody += String.format("| Transaction Date:  %s", invoice.getTransactionDate());
+        System.out.println(printBody);
+
+        printItems(invoice.getItemsList());
+    }
+
 }

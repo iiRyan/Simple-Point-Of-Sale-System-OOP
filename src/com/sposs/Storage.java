@@ -5,12 +5,10 @@ import java.io.FileNotFoundException;
 import java.util.*;
 
 public class Storage {
-    List<StorageItem> itemsList;
-    PrintItem printer;
+    List<Item> itemsList;
 
     public Storage() {
         itemsList = new ArrayList<>();
-        printer = new PrintItem();
 
     }
 
@@ -18,13 +16,12 @@ public class Storage {
         // Scanner input = new Scanner(System.in);
         // System.out.print("Enter the FIle Path: ");
         // String path = input.nextLine();
-        loadItemsFromFile("C:/V3/https---github.com-iiRyan-Simple-Point-Of-Sale-System/src/SuperMarket.txt");
+        loadItemsFromFile("D:/Java/Practic/coreJava/src/SuperMarket.txt");
     }
 
-    public StorageItem findByCode(String code) throws Exception {
-        StorageItem targetItem = null;
-        starter();
-        for (StorageItem item : itemsList) {
+    public Item findByCode(String code) throws Exception {
+        Item targetItem = null;
+        for (Item item : itemsList) {
             if (item.getCode().equals(code)) {
                 targetItem = item;
             }
@@ -32,10 +29,11 @@ public class Storage {
         return targetItem;
     }
 
-    public List<StorageItem> findAll() {
+    public List<Item> findAll() {
         return itemsList;
     }
 
+    // This method load Items form the target file.
     public void loadItemsFromFile(String path) throws Exception {
         try {
             Scanner src = new Scanner(
