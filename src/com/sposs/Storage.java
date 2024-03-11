@@ -9,10 +9,15 @@ public class Storage {
 
     public Storage() {
         itemsList = new ArrayList<>();
-
+        try {
+            starter();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void starter() throws Exception {
+        // You can get the path from the user , just uncomment the three next lines.
         // Scanner input = new Scanner(System.in);
         // System.out.print("Enter the FIle Path: ");
         // String path = input.nextLine();
@@ -35,20 +40,24 @@ public class Storage {
 
     // This method load Items form the target file.
     public void loadItemsFromFile(String path) throws Exception {
-        try {
-            Scanner src = new Scanner(
-                    new File(path));
-            String line = "";
-
-            while (src.hasNextLine()) {
-                line = src.nextLine();
-                itemsList.add(new StorageItem(line));
+        if (path != null) {
+            try {
+                Scanner src = new Scanner(
+                        new File(path));
+                String line = "";
+                // add StorageItem to the itemsList.
+                while (src.hasNextLine()) {
+                    line = src.nextLine();
+                    itemsList.add(new StorageItem(line));
+                }
+                src.close();
+            } catch (FileNotFoundException e) {
+                System.out.println("File not found: " + e.getMessage());
+            } catch (Exception e) {
+                System.out.println("An error occurred: " + e.getMessage());
             }
-            src.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("File not found: " + e.getMessage());
-        } catch (Exception e) {
-            System.out.println("An error occurred: " + e.getMessage());
+        } else {
+            System.out.println("The given Path is empty");
         }
 
     }

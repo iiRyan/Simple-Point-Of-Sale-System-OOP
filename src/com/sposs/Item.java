@@ -2,10 +2,10 @@ package com.sposs;
 
 public class Item {
 
-    private String description;
-    private String code;
-    private float uPrice; // unit price
-    private int quantity;
+    protected String description;
+    protected String code;
+    protected float uPrice; // unit price
+    protected int quantity;
 
     public Item() {
     }
