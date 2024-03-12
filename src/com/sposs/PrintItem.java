@@ -47,8 +47,8 @@ public class PrintItem {
 
     }
 
-    public void printTotal(float total) {
-        String printTotal = String.format("%3s", "Total: " + total + "$");
+    public void printTotal(float totalPrice, int totalQty) {
+        String printTotal = String.format("|  %-43s  | %6.2f | %3d |", "Total", totalPrice, totalQty);
         System.out.println(printTotal);
         separation();
     }

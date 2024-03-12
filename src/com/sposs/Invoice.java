@@ -7,8 +7,9 @@ public class Invoice {
     private String username;
     private LocalDate transactionDate;
     private List<Item> invoiceItemsList;
-    private float total = 0;
+    private float totalPrice = 0;
     private static int id = 1;
+    private int totalQty = 0;
 
     public Invoice(String username, LocalDate transactionDate, List<Item> invoiceItemsList) {
         this.username = username;
@@ -18,14 +19,21 @@ public class Invoice {
     }
 
     public float getTotal() {
-        return total;
+        return totalPrice;
+    }
+
+    public int getTotalQty() {
+        for (Item item : invoiceItemsList) {
+            totalQty += item.getQuantity();
+        }
+        return this.totalQty;
     }
 
     public float sumTotal() {
         for (Item item : invoiceItemsList) {
-            total += item.getUPrice();
+            totalPrice += item.getUPrice();
         }
-        return this.total;
+        return this.totalPrice;
     }
 
     public static int getId() {

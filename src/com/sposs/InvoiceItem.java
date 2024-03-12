@@ -10,7 +10,7 @@ public class InvoiceItem extends Item {
             Item item = storage.findByCode(code);
             this.setCode(code);
             this.setDescription(item.getDescription());
-            this.setUPrice((int) (quantity * item.getUPrice()));
+            this.setUPrice((item.getUPrice() * quantity));
             this.setQuantity(quantity);
         } catch (Exception e) {
             e.printStackTrace();
