@@ -4,16 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import com.sposs.Invoice;
-import com.sposs.InvoiceItem;
-import com.sposs.Item;
-import com.sposs.PrintItem;
-import com.sposs.Storage;
-import com.sposs.StorageItem;
+import com.pos.Invoice;
+import com.pos.InvoiceItem;
+import com.pos.Item;
+import com.pos.PrintItem;
+import com.pos.Storage;
+import com.pos.StorageItem;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        startTheStore();
+        // startTheStore();
         // List<Item> invoiceItems = new ArrayList<>();
         // PrintItem printer = new PrintItem();
 
@@ -39,6 +39,7 @@ public class App {
 
         // printer.printInvoice(theInvoice);
         // printer.printTotal(theInvoice.sumTotal(), theInvoice.getTotalQty());
+        printStoreHeader();
 
     }
 
@@ -54,4 +55,19 @@ public class App {
         System.out.println("Thank You! Come Again");
     }
 
+    public static void printStoreHeader() {
+        String stars = "**";
+        String welcome = "WELCOME TO THE STORE!";
+        String bottomLine = "";
+
+        String header = String.format("%-20s %-40s %s ", stars, welcome, stars);
+        System.out.println(header);
+        String content = String.format("| %8s |%n | %-40s | %n | %-408s |%n", "TEST", "TEST2", "TEST3");
+        System.out.println(content);
+        for (int i = 0; i < header.length(); i++) {
+            bottomLine += "*";
+
+        }
+        System.out.print(bottomLine);
+    }
 }

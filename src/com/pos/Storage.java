@@ -1,4 +1,4 @@
-package com.sposs;
+package com.pos;
 
 import java.io.File;
 import java.io.FileNotFoundException;

@@ -1,4 +1,4 @@
-package com.sposs;
+package com.pos;
 
 import java.time.LocalDate;
 import java.util.List;
